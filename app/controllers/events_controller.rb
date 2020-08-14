@@ -1,10 +1,11 @@
 class EventsController < ApplicationController
-  
+  before_action :set_event, only: [:index, :show, :new, :create]
   def index
     @events = Event.all
   end
 
-  def show
+  def show 
+    
   end
 
   def new
@@ -22,8 +23,12 @@ class EventsController < ApplicationController
   end
 
   private
+
+  def set_event
+    @event = Event.find(params[:creator_id])
+  end
   
   def event_params
-    params.require(:event).permit(:title, :description, :events_date)
+    params.require(:event).permit(:description, :events_date)
   end
 end
