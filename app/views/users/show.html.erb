@@ -2,7 +2,12 @@
   <div class="offset-4 col-md-4">
     <h3 class="text-center">
       <%= @user.username %><br/>
-      <%= @user_events.title %>
     </h3>
+    <p>User has Created</p>
+    <% @user.created_events.each do |user_event| %>
+      <%= user_event.title %><br/>
+      <%= link_to 'View Details', user_event %>
+      <%= link_to 'Invite Users', new_event_event_attending_path(user_event) %><br/>
+    <% end %>
   </div>
 </div>
