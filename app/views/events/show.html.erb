@@ -5,7 +5,13 @@
     Title: <p><%= @event.title %></p><br />
     Description: <p><%= @event.description %></p><br />
     Event Date: <%= @event.events_date %><br />
-    Orgaised By: <%= @event.creator.name %>
+    Orgaised By: <%= @event.creator.name %><br />
+    Attendees: 
+    <% if @event.attendees.exists? %>
+      <%= @event.attendees.name %>
+    <% else %>
+      <p>No Attendees yet</p>
+    <% end %>
 
   </div>
 </div>
