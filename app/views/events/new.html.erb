@@ -4,11 +4,14 @@
 
     <%= form_with(model: @event, local: true) do |f| %>
       
-      <%= f.label :title %>
+      <%= f.label :Title %>
       <%= f.text_field :title, class:' mb-1 form-control' %>
 
-      <%= f.label :description %>
+      <%= f.label :Description %>
       <%= f.text_area :description, class:' mb-1 form-control' %>
+
+      <%= f.label :Date %>
+      <%= f.date_field :date, class:' mb-1 form-control' %>
       
       <%= f.submit "Create event", class: 'mt-2 btn btn-primary' %>
     <% end %>
