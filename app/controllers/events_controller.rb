@@ -3,7 +3,10 @@ class EventsController < ApplicationController
   before_action :set_current_user, only: [:show, :index, :new, :attended_event, :add_attended_event]
   
   def index
+    @current_user = current_user
     @events = Event.all
+    @previous_event = Event.all.previous_event
+    @upcoming_event = Event.all.upcoming_event
   end
 
   def show

@@ -17,5 +17,19 @@
          <%= link_to event.description, event_path  %>
       <% end %>
     </p>
+
+    <p> 
+      <strong> Previously Attended Events </strong>
+      <% @previous_event.each do |event| %>
+        <li><%= link_to event.title, event_path %></li>
+      <% end %>
+    </p>
+
+    <p> 
+      <strong> Upcoming Events </strong>
+      <% @upcoming_event.each do |event| %>
+        <li><%= link_to event.title, event_path %></li>
+      <% end %>
+    </p>
   </div>
 </div>

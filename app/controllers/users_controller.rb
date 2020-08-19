@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
-  #before_action :logged_in_user, only: [:show]
+  before_action :logged_in_user, only: [:show]
+  
   def index
     @users = User.all
   end
@@ -21,10 +22,13 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
+  def show 
     @user = User.find(params[:id])
-
     @user_events = @user.created_events
+
+    @current_user = current_user
+    @previous_event = @current_user.created_events.previous_event
+    @upcoming_event = @current_user.created_events.upcoming_event   
   end
 
   private
