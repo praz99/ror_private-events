@@ -7,10 +7,11 @@
       <span>Creator</span>
       <strong><%= event.creator.name %></strong>
       <br/>
-      <%= link_to 'Attend Event' %>
+      <%= link_to 'Attend Event', events_attending_path %>
       <br />
       <br/>
     <% end %> <br />
+    
     <%= link_to 'Click to create an event', new_event_path, class:"btn btn-primary" %> 
   </div>
 </div>

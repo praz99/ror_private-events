@@ -7,11 +7,10 @@
     Event Date: <%= @event.events_date %><br />
     Orgaised By: <%= @event.creator.name %><br />
     Attendees: 
-    <% if @event.attendees.exists? %>
-      <%= @event.attendees.name %>
-    <% else %>
-      <p>No Attendees yet</p>
+    
+    <% @event.attendees.each do |attendee| %>
+      <li><%= attendee.name %></li>
     <% end %>
-    <%= link_to 'Attend Event', new_event_event_attending_path(@event) %><br/>
+
   </div>
 </div>

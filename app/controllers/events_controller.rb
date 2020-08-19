@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:index, :show, :new, :create]
   before_action :set_current_user, only: [:show, :index, :new, :attended_event, :add_attended_event]
+  
   def index
     @events = Event.all
   end
@@ -30,7 +31,18 @@ class EventsController < ApplicationController
   def add_attended_event
     event_ids = params[:event_ids]
     attended_events = event_ids.collect { |id| Event.find(id) }
+    
     @current_user.attended_events = attended_events
+
+    respond_to do |format|
+      if @current_user.save
+        format.html { redirect_to user_path(@current_user), notice: 'Attended events were successfully added.' }
+        format.json { render user_path, status: 'events added', location: @current_user }
+      else
+        format.html { render attended_events_path }
+        format.json { render json: @event.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   private
