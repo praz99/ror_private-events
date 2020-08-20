@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   resources :events, only: %i[new index show create]
   get 'events_attending', to: 'events#attended_event'
   post 'events_attending', to: 'events#add_attended_event'
-  get '/events/:id', to: 'events#show'
-
+ 
   root 'events#index'
 end
