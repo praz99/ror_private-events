@@ -6,30 +6,38 @@
     
     <p>
       <strong> Created Events: </strong>
-      <% @user.created_events.each do |created_event| %>
-        <li><%= link_to created_event.description, event_path  %></li>
-      <% end %>
+      <ul>
+        <% @user.created_events.each do |created_event| %>
+          <li><%= link_to created_event.description, event_path  %></li>
+        <% end %>
+      </ul>
     </p>
 
     <p>
       <strong> Events Attended: </strong>
-      <% @user.attended_events.each do |event| %>
-         <li><%= link_to event.description, event_path  %></li>
-      <% end %>
+      <ul>
+        <% @user.attended_events.each do |event| %>
+          <li><%= link_to event.description, event_path(event)  %></li>
+        <% end %>
+      </ul>
     </p>
 
     <p> 
       <strong> Previously Attended Events </strong>
-      <% @previous_event.each do |event| %>
-        <li><%= link_to event.title, event_path %></li>
-      <% end %>
+      <ul>
+        <% @previous_event.each do |event| %>
+          <li><%= link_to event.title, event_path(event) %></li>
+        <% end %>
+      </ul>
     </p>
 
     <p> 
       <strong> Upcoming Events </strong>
-      <% @upcoming_event.each do |event| %>
-        <li><%= link_to event.title, event_path %></li>
-      <% end %>
+      <ul>
+        <% @upcoming_event.each do |event| %>
+          <li><%= link_to event.title, event_path %></li>
+        <% end %>
+      </ul>
     </p>
   </div>
 </div>
