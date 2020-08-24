@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1 class="welcome-heading text-center">WELCOME TO EVENTER</h1>
+      <p class="welcome-description">
+        Here you can create events and invive other users to attend your event. You can also look for event that other users have created and attend them.
+      </p>
+      <div class="d-flex justify-content-around">
+        <div class="d-flex flex-column align-items-center">
+          <p class="">New to Eventer?</p>
+          <%= link_to 'Sign Up', new_user_path, class: "btn btn-primary" %>
+        </div>
+        <div class="d-flex flex-column align-items-center">
+          <p class="">Already have an account?</p>
+          <%= link_to 'Log In', login_path, class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

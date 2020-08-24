@@ -1,16 +1,29 @@
 <div class="row">
-  <div class="offset-4 col-md-4">
-    <h3 class="text-center"> Show A Single Event </h3>
-    
-    Title: <p><%= @event.title %></p><br />
-    Description: <p><%= @event.description %></p><br />
-    Event Date: <%= @event.events_date %><br />
-    Orgaised By: <%= @event.creator.name %><br />
-    Attendees: 
-    
-    <% @event.attendees.each do |attendee| %>
-      <li><%= attendee.name %></li>
-    <% end %>
-
+  <div class="col-md-4 mx-auto bg-light py-4 my-5 rounded">
+    <h3 class="text-center bg-info rounded py-1"><%= @event.title %></h3><br/>
+    <p><%= @event.description %></p><br />
+    <p>Date: <%= @event.events_date %></p>
+    <p>Orgaised By: <%=link_to @event.creator.name, user_path(@event.creator) %><p/>
+    <p>
+      Attendees:    
+      <% @event.attendees.each do |attendee| %>
+        <li><%=link_to attendee.name, user_path(attendee) %></li>
+      <% end %>
+    </p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-4 mx-auto text-center rounded bg-primary py-2 my-2">
+    <%= link_to 'Attend Event', add_events_attending_path(@event, idz: @event.id), method: :post, class:'text-white' %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-4 mx-auto text-center rounded bg-primary py-2">
+    <%= link_to 'Back', :back, class:'text-white' %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-4 mx-auto text-center rounded bg-primary py-2 my-2">
+    <%= link_to 'Unattend Event', rem_events_attending_path(@event, idz: @event.id), method: :post, class:'text-white' %>
   </div>
 </div>

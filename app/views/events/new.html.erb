@@ -5,16 +5,17 @@
     <%= form_with(model: @event, local: true) do |f| %>
      
       <%= f.label :Title %>
-      <%= f.text_field :title, class:' mb-1 form-control' %>
+      <%= f.text_field :title, autofocus: true, class:' mb-1 form-control' %>
 
       <%= f.label :Description %>
       <%= f.text_area :description, class:' mb-1 form-control' %>
 
       <%= f.label :Date %>
-      <%= f.date_field :events_date, class:' mb-1 form-control' %>
-      
-      <%= f.submit "Create event", class: 'mt-2 btn btn-primary' %>
+      <%= f.datetime_field :events_date, class:' mb-1 form-control' %>
+      <div class="d-flex justify-content-between">
+        <%= f.submit "Create event", class: 'mt-2 btn btn-primary' %>
+        <%= link_to 'Cancel', events_path, class: "mt-2 btn btn-primary px-5"%>
+      </div>
     <% end %>
   </div>
 </div>
-<%= link_to 'Back', events_path, class: "btn btn-primary"%>

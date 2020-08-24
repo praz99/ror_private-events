@@ -1,29 +1,18 @@
 <div class="container">
-
-  <h3 class="text-center"> All Event </h3>
-  
-  <div class="d-flex justify-content-around">
-    
-    <% @events.each do |event| %>
-    
-      <div class="card" style="width: 18rem;">
+  <h3 class="text-center"> All Event </h3>  
+  <div class="d-flex justify-content-around">    
+    <% @events.each do |event| %>    
+      <div class="card bg-light mx-2" style="width: 18rem;">
         <div class="card-body">
           <h5><%= event.title %></h5>
-          <h6 class="card-subtitle mb-2 text-muted"><%= event.description %></h6>
-          <p class="card-text"><span>Creator</span>
-          <%= event.creator.name %></p>
-          <%= link_to 'Attend Event', events_attending_path, class:"card-link" %>
+          <p class="card-text"><span>Creator:</span>
+          <%= link_to event.creator.name, user_path(event.creator) %></p>
+          <%= link_to 'See Details', event_path(event), class:"card-link" %>
         </div>
       </div>
-
     <% end %> 
-   </div> 
-
+   </div>
    <div class="d-flex justify-content-center mt-4">
     <%= link_to 'Click to create an event', new_event_path, class:"btn btn-primary " %> 
-   </div>
-    
-
-
-  
+   </div>  
 </div>
