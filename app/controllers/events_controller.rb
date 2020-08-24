@@ -29,8 +29,11 @@ class EventsController < ApplicationController
 
   def attended_event
     event = Event.find(params[:idz])
-    if @current_user.attended_events.include?(event)
-      flash[:danger] = 'This event is already in your events list! Please try next one.'
+    # if @current_user.attended_events.include?(event)
+    #   flash[:danger] = 'This event is already in your events list! Please try next one.'
+    # else
+    if event.events_date < Date.today
+      flash[:danger] = 'This event has already ended. Please try next one.'
     else
       @current_user.attended_events << event
       flash[:success] = 'Event added successfully to your events list. Don\'t forget to attend.'
