@@ -66,8 +66,6 @@ class EventsController < ApplicationController
   #   end
   # end
 
-
-
   private
 
   def set_event
