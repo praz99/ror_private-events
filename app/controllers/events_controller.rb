@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: %i[index show new create]
-  before_action :logged_in_user, only: %i[show index new attended_event add_attended_event]
+  before_action :logged_in_user, only: %i[show new attended_event add_attended_event]
 
   def index
     @current_user = current_user
@@ -29,9 +29,6 @@ class EventsController < ApplicationController
 
   def attended_event
     event = Event.find(params[:idz])
-    # if @current_user.attended_events.include?(event)
-    #   flash[:danger] = 'This event is already in your events list! Please try next one.'
-    # else
     if event.events_date < Date.today
       flash[:danger] = 'This event has already ended. Please try next one.'
     else

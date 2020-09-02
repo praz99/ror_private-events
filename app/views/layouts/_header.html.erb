@@ -1,13 +1,17 @@
 <nav class="navbar navbar-light bg-light justify-content-between mb-2">
   <div class="container-fluid">
     <div class="navbar-header">
-      <%= link_to "Events", events_path, class: 'mx-4 px-4 navbar-brand bg-success text-white rounded' %>
+      <%= link_to "Events", root_path, class: 'mx-4 px-4 navbar-brand bg-success text-white rounded' %>
     </div>
     <% if logged_in? %>
-        <nav class="navbar navbar-light bg-light justify-content-between">
-          <%= link_to current_user.username, user_path(current_user), class:'btn btn-primary' %>
-          <%= link_to "log out", logout_path, class: 'mx-2 btn btn-primary', method: :delete %>
-        </nav>
-      <% end %>
+      <nav class="navbar navbar-light bg-light justify-content-between">
+        <%= link_to current_user.username, user_path(current_user), class:'btn btn-primary' %>
+        <%= link_to "log out", logout_path, class: 'mx-2 btn btn-primary', method: :delete %>
+      </nav>
+    <% else %>
+      <nav class="navbar navbar-light bg-light justify-content-between">
+        <%= link_to "Sign in", login_path, class: 'mx-2 btn btn-primary' %>
+      </nav>
+    <% end %>
   </div>
 </nav>
