@@ -27,7 +27,7 @@ RSpec.feature 'allow signup with vaid attributes', type: :feature do
   end
 
   scenario 'redirect to the user page' do
-    expect(page).to have_content('Welcome to Private Events!')  
+    expect(page).to have_content('Welcome to Private Events!')
   end
 
   scenario 'display created users profile page' do
