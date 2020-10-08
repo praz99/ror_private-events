@@ -62,6 +62,7 @@ RSpec.feature 'sign in as a valid user', type: :feature do
     @user1 = create(:user)
     visit '/login'
     fill_in 'Username', with: 'praz'
+    click_button 'Sign in'
   end
 
   scenario 'redirect to the user page' do
