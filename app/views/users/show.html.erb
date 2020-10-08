@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-4 mx-auto bg-light py-4 my-4 rounded">
+    <h3 class="text-center rounded bg-info py-2">
+      <%= @user.name %><br/>
+    </h3>
+    
+    <p>
+      <strong> Created Events: </strong>
+      <ul>
+        <% @user.created_events.each do |created_event| %>
+          <li><%= link_to created_event.title, event_path(created_event)  %></li>
+        <% end %>
+      </ul>
+    </p>
+
+    <p>
+      <strong> Events Attended: </strong>
+      <ul>
+        <% @user.attended_events.each do |event| %>
+          <li><%= link_to event.title, event_path(event)  %></li>
+        <% end %>
+      </ul>
+    </p>
+
+    <p> 
+      <strong> Previously Attended Events </strong>
+      <ul>
+        <% @previous_event.each do |event| %>
+          <li><%= link_to event.title, event_path(event) %></li>
+        <% end %>
+      </ul>
+    </p>
+
+    <p> 
+      <strong> Upcoming Events </strong>
+      <ul>
+        <% @upcoming_event.each do |event| %>
+          <li><%= link_to event.title, event_path(event) %></li>
+        <% end %>
+      </ul>
+    </p>
+  </div>
+</div>
+<div class="row mx-2">
+  <div class="col-4 mx-auto text-center rounded bg-primary py-2">
+    <%= link_to 'Back', :back, class: "text-white" %>
+  </div>
+</div>
