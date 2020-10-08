@@ -1,0 +1,18 @@
+<!--<div class="container">
+  <h4 class="text-center"> Add Attended Event </h4>
+  <div class="d-flex justify-content-around">
+    <%= form_with(model: @event, local: true) do |form| %>
+      <% @events.each do |event| %>
+        <ul>
+          <li>
+            <%= check_box_tag "event_ids[]", event.id, false, class:"mt-4" %>
+            <%= event.description %><%= event.events_date %>
+          </li>
+        </ul>
+      <% end %>
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    <% end %>
+  </div>
+</div> -->
